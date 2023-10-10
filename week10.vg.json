@@ -1,0 +1,155 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 400,
+    "height": 300,
+    "title": "Happiness Scores in relation to Trust in Government and Freedom",
+    "data": {
+      "url": "2015.csv"
+    },          
+    "params": [
+      {
+        "name": "Continent_selection",
+        "bind": {
+          "input": "select",
+          "options": [
+            null,
+            "Western Europe",
+            "North America",
+            "Australia and New Zealand",
+            "Middle East and Northern Africa",
+            "Southeastern Asia",
+            "Central and Eastern Europe",
+            "Eastern Asia",
+            "Sub-Saharan Africa",
+            "Southern Asia"
+          ],
+          "labels": [
+            "Show All",
+            "Western Europe",
+            "North America",
+            "Australia and New Zealand",
+            "Middle East and Northern Africa",
+            "Southeastern Asia",
+            "Central and Eastern Europe",
+            "Eastern Asia",
+            "Sub-Saharan Africa",
+            "Southern Asia"
+          ],
+          "name": "Region Selection: "
+        }
+      },
+      {
+        "name": "Happiness_Above",
+        "value": 0,
+        "bind": {
+        "input": "range",
+        "min": 0,
+        "max": 7,
+        "step": 1,
+        "name": "Happiness Score: "
+        }
+        }
+    ],
+    "transform": [
+      {
+        "filter": "Continent_selection == null || datum.Region == Continent_selection"
+    },
+    {"filter": "datum.Happiness > Happiness_Above"}
+    ],
+    "encoding": {
+      "x": {
+        "field": "Trust (Government Corruption)",
+        "type": "quantitative",
+        "title": "Trust in the Government",
+        "axis": {"tickCount": 5},
+        "scale": {"type": "linear", "domain": [0, 0.6]}
+      },
+      "y": {
+        "field": "Freedom",
+        "type": "quantitative",
+        "axis": {"tickCount": 6},
+        "scale": {"type": "linear", "domain": [0, 0.8]}
+      }
+    },
+    "layer": [
+      {
+        "mark": "circle",
+        "encoding": {
+          "size": {
+            "field": "Happiness",
+            "type": "quantitative",
+            "scale": {
+              "type": "threshold",
+              "domain": [1, 2, 3, 4, 5, 6, 7, 8],
+              "range": [10, 25, 50, 100, 150, 225, 300, 400]
+            },
+            "legend": {"format": ".1s"}
+          },
+          "color": {
+            "field": "Region",
+            "type": "nominal",
+            "scale": {
+              "domain": [
+                "Western Europe",
+                "North America",
+                "Australia and New Zealand",
+                "Middle East and Northern Africa",
+                "Southeastern Asia",
+                "Central and Eastern Europe",
+                "Eastern Asia",
+                "Sub-Saharan Africa",
+                "Southern Asia"
+              ],
+              "range": [
+                "#e41a1c",
+                "#984ea3",
+                "#ff7f00",
+                "#a6cee3",
+                "#377eb8",
+                "#a65628",
+                "#f781bf",
+                "#999999",
+                "#4daf4a"
+              ]
+            }
+          },
+          "opacity": {"value": 0.9},
+          "tooltip": [
+            {"field": "Country", "type": "nominal"},
+            {"field": "Happiness Rank", "type": "quantitative", "format": ","},
+            {"field": "Happiness", "type": "quantitative", "format": ","},
+            {"field": "Economy (GDP per Capita)", "type": "quantitative", "format": ","},
+            {"field": "Trust (Government Corruption)", "type": "quantitative", "format": ","}
+          ]
+        }
+      },
+      {
+        "mark": {
+          "type": "text",
+          "align": "left",
+          "baseline": "middle",
+          "dx": -12,
+          "fontSize": 11.5,
+          "fontStyle": "italic"
+        },
+        "encoding": {
+          "text": {"field": "Country", "type": "nominal"},
+          "color": {"value": "black"},
+          "opacity": {
+            "condition": {
+              "test": "datum['Country'] == 'Greece' || datum['Country'] == 'Malaysia' || datum['Country'] == 'Cambodia' || datum['Country'] == 'Sri Lanka' || datum['Country'] == 'United Arab Emirates' || datum['Country'] == 'Saudi Arabia' ||  datum['Country'] == 'United States'",
+              "value": 1
+            },
+            "value": 0
+          },
+          "tooltip": [
+            {"field": "Country", "type": "nominal"},
+            {"field": "Happiness Rank", "type": "quantitative", "format": ","},
+            {"field": "Happiness", "type": "quantitative", "format": ","},
+            {"field": "Economy (GDP per Capita)", "type": "quantitative", "format": ","},
+            {"field": "Trust (Government Corruption)", "type": "quantitative", "format": ","}
+          ]
+        }
+      }
+    ]
+  }
