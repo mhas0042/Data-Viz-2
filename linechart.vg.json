@@ -1,66 +1,103 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 400,
-    "height": 200,
-    "title": "Average Happiness Scores by Region",
-    "data": {
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 400,
+  "height": 200,
+  "title": "Average Happiness Scores by Region",
+  "data": {
       "url": "2015.csv"
-    },
-    "transform": [
+  },
+  "transform": [
       {
-        "aggregate": [{"op": "mean", "field": "Happiness", "as": "average_happiness"}],
-        "groupby": ["Region"]
+          "aggregate": [{"op": "mean", "field": "Happiness", "as": "average_happiness"}],
+          "groupby": ["Region"]
       }
-    ],
-    "encoding": {
+  ],
+  "encoding": {
       "x": {
-        "field": "Region",
-        "type": "nominal",
-        "title": "Region"
+          "field": "Region",
+          "type": "nominal",
+          "title": "Region"
       },
       "y": {
-        "field": "average_happiness",
-        "type": "quantitative",
-        "title": "Average Happiness"
+          "field": "average_happiness",
+          "type": "quantitative",
+          "title": "Average Happiness"
       },
       "color": {
-        "field": "Region",
-        "type": "nominal",
-        "scale": {
-          "domain": [
-            "Western Europe",
-            "North America",
-            "Australia and New Zealand",
-            "Middle East and Northern Africa",
-            "Southeastern Asia",
-            "Central and Eastern Europe",
-            "Eastern Asia",
-            "Sub-Saharan Africa",
-            "Southern Asia",
-            "Latin America and Caribbean"
-          ],
-          "range": [
-            "#e41a1c",
-            "#984ea3",
-            "#ff7f00",
-            "#a6cee3",
-            "#377eb8",
-            "#a65628",
-            "#f781bf",
-            "#999999",
-            "#4daf4a",
-            "#fbca2e"
-          ]
-        }
+          "field": "Region",
+          "type": "nominal",
+          "scale": {
+              "domain": [
+                  "Western Europe",
+                  "North America",
+                  "Australia and New Zealand",
+                  "Middle East and Northern Africa",
+                  "Southeastern Asia",
+                  "Central and Eastern Europe",
+                  "Eastern Asia",
+                  "Sub-Saharan Africa",
+                  "Southern Asia",
+                  "Latin America and Caribbean"
+              ],
+              "range": [
+                  "#e41a1c",
+                  "#984ea3",
+                  "#ff7f00",
+                  "#a6cee3",
+                  "#377eb8",
+                  "#a65628",
+                  "#f781bf",
+                  "#999999",
+                  "#4daf4a",
+                  "#fbca2e"
+              ]
+          }
       },
       "tooltip": [
-        {"field": "Region", "type": "nominal", "title": "Region"},
-        {"field": "average_happiness", "type": "quantitative", "title": "Average Happiness"}
+          {"field": "Region", "type": "nominal", "title": "Region"},
+          {"field": "average_happiness", "type": "quantitative", "title": "Average Happiness"}
       ]
-    },
-    "mark": "bar",
-    "config": {
-        "axisX": {"labelAngle": -45}
+  },
+  "layer": [
+      {
+          "mark": "bar"
+      },
+      {
+          "mark": {
+              "type": "text",
+              "align": "left",
+              "baseline": "line-bottom",
+              "dx": -18,
+              "dy": -25
+          },
+          "encoding": {
+              "text": {
+                  "condition": {
+                      "test": "datum.Region === 'Australia and New Zealand'",
+                      "value": ["Highest", "Happiness", "(7.3)"]
+                  }
+              }
+          }
+      },
+      {
+          "mark": {
+              "type": "text",
+              "align": "left",
+              "baseline": "line-bottom",
+              "dx": -20,
+              "dy": -25
+          },
+          "encoding": {
+              "text": {
+                  "condition": {
+                      "test": "datum.Region === 'Sub-Saharan Africa'",
+                      "value": ["Lowest", "Happiness", "(4.2)"]
+                  }
+              }
+          }
       }
+  ],
+  "config": {
+      "axisX": {"labelAngle": -45}
   }
-  
+}
