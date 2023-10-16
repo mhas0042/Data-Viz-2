@@ -1,7 +1,7 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 300,
-    "height": 200,
+    "width": 580,
+    "height": 300,
     "title": "Trust (Government Corruption) in relation to Happiness Rank",
     "data": {
       "url": "2015.csv"
@@ -25,7 +25,7 @@
     },
     "mark": {
       "type": "line",
-      "point": true
+      "point": false
     }
   }
   
