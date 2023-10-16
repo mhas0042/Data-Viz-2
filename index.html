@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>Multiple Visualisations | An Example</title>
+  <title>Data Visualisation II</title>
   <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
   <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
@@ -45,15 +45,16 @@
     <div class="pure-g">
       <div class="pure-u-1-2">
         <div class="description description-left">
-          <h2>Average Happiness Scores by Region</h2>
-        <p>This visual representation offers insights into the average happiness scores across different regions globally. By
-            aggregating the happiness data from the year 2015, the chart illustrates a comparative analysis of happiness levels
-            among various regions. Each bar represents a specific region, and the height of the bar indicates the average
-            happiness score for that region. Utilizing a color palette to distinguish between regions, the chart provides a
-            clear overview of the happiness trends. This analysis aids in understanding the regional disparities in happiness,
-            highlighting areas with higher or lower average happiness scores. Such visualizations are invaluable for
-            policymakers and researchers, guiding their efforts in enhancing well-being and quality of life across different
-            geographical regions.
+          <h2>Mapping Global Joy: Average Happiness Scores Across Regions</h2>
+        <p>Analyzing the happiness data from 2015, the chart visually contrasts the average happiness scores across various
+          global regions. Each distinct bar corresponds to a specific region, its height reflecting the region's average
+          happiness score. The use of vibrant colors enables easy differentiation between regions, revealing notable trends.
+          </p>
+        <p>Remarkably, Australia and New Zealand stand out as the happiest region, closely followed by North America. In
+          contrast, sub-Saharan Africa displays the lowest happiness levels. This insightful visualization not only underscores
+          global happiness disparities but also serves as a crucial resource for researchers. By pinpointing
+          regions with varying happiness levels, it guides efforts to enhance the overall well-being and quality of life across
+          diverse geographical areas.
           </p>
             
         </div>
@@ -64,18 +65,49 @@
     </div>
     <!-- end pure grid group -->
 
+
+    
+
    <!-- pure grid group -->
-    <div class="pure-g">
+   <div class="pure-g">
+    <div class="pure-u-1-1">
+      <div class="description">
+        <h2>Visualizing Global Bliss: Exploring the Interplay of Happiness, Freedom, and Government Trust</h2>
+      <p>This visualization delves into the intricate dynamics between happiness, freedom, and trust in government across
+        various nations. Each region's countries are meticulously clustered, painting a vivid picture of how these factors
+        influence the overall happiness index. The proximity of countries within the same region highlights shared societal
+        values and governance patterns. As you navigate this visual journey, it becomes evident how the level of freedom and
+        the trust people have in their governments deeply impact the happiness quotient. Observing these patterns not only
+        offers a glimpse into global social landscapes but also underscores the critical role that governance and individual
+        liberties play in shaping a nation's collective joy.
+      </p>
+      </div>
+    </div>
+
+  </div>
+  <!-- end pure grid group -->
+    
+    <div class="pure-u-1-5">
+      <div id="vis1" class="vis-container"></div>
+    </div>
+
+
+     <!-- pure grid group -->
+     <div class="pure-g">
       <div class="pure-u-2-3">
-        <div id="vis1" class="vis-container"></div>
+        <div id="vis4" class="vis-container"></div>
       </div>
       <div class="pure-u-1-3">
-        <div class="description description-right">
+        <div class="description ">
           <h2>Comparison between Global Happiness and the trust of people in the government</h2>
         <p>The comparison between global happiness and people's trust in government and freedom is a complex exploration of the
             interplay between societal contentment, political stability, and individual liberties.</p>
-        <p>The comparison between global happiness and people's trust in government and freedom is a complex exploration of the
-            interplay between societal contentment, political stability, and individual liberties.</p>
+        <p>This visualization delves into the intricate relationship between people's happiness and their trust in government.
+          By aligning global happiness scores with public trust levels, it offers a nuanced view of societal well-being. Regions
+          with high happiness and trust depict harmonious governance, while disparities highlight potential areas for
+          improvement. This analysis sheds light on the delicate relationship between public contentment and governance, offering
+          valuable societal insights.
+        </p>
         </div>
       </div>
 
@@ -99,7 +131,7 @@
           </p>
         </div>
       </div>
-      <div class="pure-u-1-3">
+      <div class="pure-u-1-4">
         <div id="vis2" class="vis-container"></div>
       </div>
 
