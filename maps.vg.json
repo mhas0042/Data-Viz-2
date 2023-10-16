@@ -1,8 +1,8 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": "Happiness Scores Around the World (2015)",
-    "width": 800,
-    "height": 400,
+    "width": 1200,
+    "height": 600,
     "data": {
         "url": "ne_110m_admin_0_countries.topojson",
         "format": { "type": "topojson", "feature": "ne_110m_admin_0_countries" }
