@@ -1,8 +1,8 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 400,
-    "height": 300,
-    "title": "Happiness Scores in relation to Trust in Government and Freedom",
+    "width": 1000,
+    "height": 500,
+    "title": "Happiness Scores in relation to Freedom and Trust in Government",
     "data": {
       "url": "2015.csv"
     },          
@@ -21,7 +21,8 @@
             "Central and Eastern Europe",
             "Eastern Asia",
             "Sub-Saharan Africa",
-            "Southern Asia"
+            "Southern Asia",
+            "Latin America and Caribbean"
           ],
           "labels": [
             "Show All",
@@ -33,7 +34,8 @@
             "Central and Eastern Europe",
             "Eastern Asia",
             "Sub-Saharan Africa",
-            "Southern Asia"
+            "Southern Asia",
+            "Latin America and Caribbean"
           ],
           "name": "Region Selection: "
         }
@@ -58,17 +60,17 @@
     ],
     "encoding": {
       "x": {
-        "field": "Trust (Government Corruption)",
-        "type": "quantitative",
-        "title": "Trust in the Government",
-        "axis": {"tickCount": 5},
-        "scale": {"type": "linear", "domain": [0, 0.6]}
-      },
-      "y": {
         "field": "Freedom",
         "type": "quantitative",
+        "title": "Freedom",
+        "axis": {"tickCount": 5},
+        "scale": {"type": "linear", "domain": [0, 0.7]}
+      },
+      "y": {
+        "field": "Trust (Government Corruption)",
+        "type": "quantitative",
         "axis": {"tickCount": 6},
-        "scale": {"type": "linear", "domain": [0, 0.8]}
+        "scale": {"type": "linear", "domain": [0, 0.6]}
       }
     },
     "layer": [
@@ -81,7 +83,7 @@
             "scale": {
               "type": "threshold",
               "domain": [1, 2, 3, 4, 5, 6, 7, 8],
-              "range": [10, 25, 50, 100, 150, 225, 300, 400]
+              "range": [40, 100, 200, 400, 600, 900, 1200, 1600]
             },
             "legend": {"format": ".1s"}
           },
@@ -98,7 +100,8 @@
                 "Central and Eastern Europe",
                 "Eastern Asia",
                 "Sub-Saharan Africa",
-                "Southern Asia"
+                "Southern Asia",
+                "Latin America and Caribbean"
               ],
               "range": [
                 "#e41a1c",
@@ -109,7 +112,8 @@
                 "#a65628",
                 "#f781bf",
                 "#999999",
-                "#4daf4a"
+                "#4daf4a",
+                "#fbca2e"
               ]
             }
           },
@@ -137,7 +141,7 @@
           "color": {"value": "black"},
           "opacity": {
             "condition": {
-              "test": "datum['Country'] == 'Greece' || datum['Country'] == 'Malaysia' || datum['Country'] == 'Cambodia' || datum['Country'] == 'Sri Lanka' || datum['Country'] == 'United Arab Emirates' || datum['Country'] == 'Saudi Arabia' ||  datum['Country'] == 'United States'",
+              "test": "datum['Country'] == 'Greece' || datum['Country'] == 'Malaysia' || datum['Country'] == 'Cambodia' || datum['Country'] == 'United Arab Emirates' || datum['Country'] == 'Saudi Arabia' ||  datum['Country'] == 'United States'",
               "value": 1
             },
             "value": 0
