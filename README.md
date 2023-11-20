@@ -56,4 +56,4 @@ Our dedication to clarity, accessibility, and aesthetics influenced every design
 2. [Helliwell, J. F., Layard, R., Sachs, J. D., Neve, J.-E. D., Aknin, L. B., & Wang, S. (2023)](https://worldhappiness.report/ed/2023/)
 3. [Using Bar Charts to Compare Data in Categories](https://journal.ahima.org/page/using-bar-charts-to-compare-data-in-categories)
 
-Feel free to explore the visualization [here](https://naveeeedhassan.github.io/Data-Viz-2/) and gain insights into the fascinating world of global happiness and well-being!
+Feel free to explore the visualization [here](https://naveeeedhassan.github.io/Global-Happiness-And-Well-Being-Data-Visualization/) and gain insights into the fascinating world of global happiness and well-being!
